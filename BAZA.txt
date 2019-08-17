@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS lekarz(id INTEGER PRIMARY KEY, imie VARCHAR(20) NOT NULL, nazwisko VARCHAR(20) NOT NULL, numer INTEGER NOT NULL UNIQUE);
+
+CREATE TABLE IF NOT EXISTS zabieg(id INTEGER PRIMARY KEY, nazwa VARCHAR(20) NOT NULL, data TEXT UNIQUE, cena INTEGER NOT NULL, lekarz_id INTEGER REFERENCES lekarz(id));
+
+CREATE TABLE IF NOT EXISTS pacjent(id INTEGER PRIMARY KEY, imie VARCHAR(20) NOT NULL, nazwisko VARCHAR(20) NOT NULL, PESEL INTEGER NOT NULL UNIQUE);
+
+CREATE TABLE IF NOT EXISTS pacjent_has_zabieg(id INTEGER PRIMARY KEY, pacjent_id INTEGER REFERENCES pacjent(id), zabieg_id INTEGER REFERENCES zabieg(id));
+
+id
+imie
+nazwisko
+numer
+nazwa
+data
+cena
+lekarz_id
+imie
+nazwisko
+pesel
+pacjent_id
+zabieg_id
+
+
+                String nazwa = rs.getString("nazwa");
+                String data = rs.getString("data");
+                Integer cena = rs.getInt("cena");
+                Integer lekarz_id = rs.getInt("lekarz_id");
+                Integer PESEL = rs.getInt("PESEL");
+                Integer pacjent_id = rs.getInt("pacjent_id");
+                Integer zabieg_id = rs.getInt("zabieg_id");
